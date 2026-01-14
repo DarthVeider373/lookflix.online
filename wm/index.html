@@ -11,16 +11,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-
   <script>
     window.googlePixelId = "6902bf1a7d07a23063c4885b";
     var a = document.createElement("script");
     a.setAttribute("async", "");
     a.setAttribute("defer", "");
-    a.setAttribute("src", "[https://cdn.utmify.com.br/scripts/pixel/pixel-google.js](https://cdn.utmify.com.br/scripts/pixel/pixel-google.js)");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
     document.head.appendChild(a);
   </script>
-
 
   <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
   <link rel="preload" href="https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/players/6961afdad57dbf78326bbd5f/v4/player.js" as="script">
@@ -30,8 +28,6 @@
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
   <link rel="dns-prefetch" href="https://images.converteai.net">
   <link rel="dns-prefetch" href="https://api.vturb.com.br">
-
-
 
   <style>
     :root {
@@ -61,7 +57,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
         radial-gradient(900px 420px at 50% 0%, rgba(255, 0, 0, .22), transparent 55%),
@@ -79,7 +75,7 @@
       font-size: clamp(12px, 1.4vw, 14px);
       text-transform: uppercase;
       text-align: center;
-      padding: 12px 12px;
+      padding: 12px;
     }
 
     .wrap {
@@ -90,49 +86,18 @@
 
     .hero {
       text-align: center;
-      padding: 10px 10px 26px;
     }
 
-    /* 🔽 ALTERAÇÃO 1: mais espaço abaixo do título */
     .headline {
       font-weight: 800;
       line-height: 1.12;
       font-size: clamp(22px, 3.2vw, 44px);
       margin: 0 0 26px;
-      text-shadow: 0 2px 22px rgba(0, 0, 0, .42);
       text-transform: uppercase;
     }
 
     .highlight-yellow {
       color: #f5c518;
-    }
-
-    .videoShell {
-      margin: 26px auto 10px;
-      max-width: 1000px;
-      border-radius: 18px;
-      background: rgba(0, 0, 0, .20);
-      border: 1px solid rgba(255, 255, 255, .10);
-      box-shadow: 0 26px 70px rgba(0, 0, 0, .55);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .video {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-      background:
-        radial-gradient(520px 240px at 50% 20%, rgba(255, 255, 255, .12), transparent 55%),
-        linear-gradient(135deg, rgba(255, 0, 0, .12), rgba(0, 0, 0, .60));
-    }
-
-    .video::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .55));
-      pointer-events: none;
     }
 
     .ratings {
@@ -148,7 +113,6 @@
     .stars {
       color: #f5c518;
       letter-spacing: 2px;
-      font-size: clamp(14px, 1.6vw, 18px);
     }
 
     .belowFoldSpacer {
@@ -181,20 +145,15 @@
       font-size: 13px;
     }
 
-    .footLinks a:hover {
-      text-decoration: underline
-    }
-
     .legal {
-      margin: 0 auto;
       max-width: 980px;
+      margin: 0 auto;
       color: var(--muted2);
       font-size: 12px;
       line-height: 1.55;
       text-align: center;
     }
 
-    /* 🔽 ALTERAÇÃO 2: headline com no máximo 2 linhas no mobile */
     @media (max-width:560px) {
       .headline {
         display: -webkit-box;
@@ -203,39 +162,8 @@
         overflow: hidden;
       }
 
-      .ratings {
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 14px;
-      }
-
-      .stars {
-        letter-spacing: 1px;
-      }
-
-      .video {
-        aspect-ratio: 16/10;
-      }
-
-      .wrap {
-        padding: 20px 14px 24px;
-      }
-
-      .hero {
-        padding-left: 6px;
-        padding-right: 6px;
-      }
-
-      .videoShell {
-        border-radius: 16px;
-      }
-
       .belowFoldSpacer {
         height: 42vh;
-      }
-
-      .topStrip {
-        padding: 12px 10px;
       }
     }
   </style>
@@ -243,48 +171,64 @@
 </head>
 
 <body>
-  <div class="topStrip">SÓ HOJE, QUINTA-FEIRA, 8 DE JANEIRO</div>
+
+  <div class="topStrip" id="topStrip"></div>
 
   <main class="wrap">
     <section class="hero">
+
       <h1 class="headline">
         ESSE É O <span class="highlight-yellow">SEGREDINHO</span> QUE FALTAVA<br>
         PRA FAZER ELA JORRAR
       </h1>
 
+      <vturb-smartplayer id="vid-6961afdad57dbf78326bbd5f" style="display:block;width:100%;max-width:960px;margin:0 auto"></vturb-smartplayer>
+      <script>
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/players/6961afdad57dbf78326bbd5f/v4/player.js";
+        s.async = true;
+        document.head.appendChild(s);
+      </script>
 
-      <vturb-smartplayer id="vid-6961afdad57dbf78326bbd5f" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
-      <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/cda0fd17-3b99-44d2-a83a-fc66435cb2df/players/6961afdad57dbf78326bbd5f/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
-
-
-
-      <div class="ratings" aria-label="Avaliações">
+      <div class="ratings">
         <div class="stars">★★★★★</div>
         <div>4.9 <span style="opacity:.8;font-weight:600">(2.267 Avaliações)</span></div>
       </div>
 
-      <div class="belowFoldSpacer" aria-hidden="true"></div>
+      <div class="belowFoldSpacer"></div>
+
     </section>
   </main>
 
-  <footer id="footer">
+  <footer>
     <div class="footerWrap">
-      <nav class="footLinks" aria-label="Links do rodapé">
-        <a href="../termos/" onclick="alert('Página de Termos (exemplo).'); return false;">Termos</a>
-        <a href="../privacidade/" onclick="alert('Página de Política (exemplo).'); return false;">Política</a>
+      <nav class="footLinks">
+        <a href="#">Termos</a>
+        <a href="#">Política</a>
       </nav>
 
       <p class="legal">
-        Este site não é afiliado ao YouTube nem ao Google LLC. Não é endossado nem patrocinado pelo YouTube de nenhuma forma.
-        YouTube é uma marca registrada da Google LLC. Todo o conteúdo deste site está protegido pelas leis de direitos autorais e de propriedade intelectual.
-        A reprodução ou distribuição de qualquer parte deste site sem permissão é proibida. As informações fornecidas têm caráter exclusivamente educativo e informativo.
-        Os resultados individuais podem variar. O conteúdo oferecido não substitui aconselhamento profissional, médico, financeiro ou de qualquer outra natureza.
-        Sempre consulte um profissional qualificado antes de tomar decisões com base nas informações apresentadas.
+        Este site não é afiliado ao YouTube nem ao Google LLC. Não é endossado nem patrocinado pelo YouTube.
+        Os resultados podem variar. Conteúdo educativo.
         <br><br>
-        Todos os direitos reservados © 2025
+        © 2025 — Todos os direitos reservados
       </p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const dias = ['DOMINGO', 'SEGUNDA-FEIRA', 'TERÇA-FEIRA', 'QUARTA-FEIRA', 'QUINTA-FEIRA', 'SEXTA-FEIRA', 'SÁBADO'];
+      const meses = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+
+      const hoje = new Date();
+      const texto = `SÓ HOJE, ${dias[hoje.getDay()]}, ${hoje.getDate()} DE ${meses[hoje.getMonth()]}`;
+
+      const el = document.getElementById('topStrip');
+      if (el) el.textContent = texto;
+    })();
+  </script>
+
 </body>
 
 </html>
